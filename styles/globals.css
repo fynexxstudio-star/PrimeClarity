@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+@theme {
+  --color-zap-green: #adff2f;
+  --color-electric-purple: #a100ff;
+  --color-cyber-blue: #00f0ff;
+  --color-hot-pink: #ff00ae;
+  --color-neon-orange: #ff5e00;
+  --color-brutal-black: #000000;
+  --color-brutal-white: #ffffff;
+
+  --font-display: "Bebas Neue", "Orbitron", sans-serif;
+
+  --shadow-brutal: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-brutal-hover: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-brutal-lg: 12px 12px 0px 0px rgba(0, 0, 0, 1);
+
+  --animate-glitch: glitch 0.3s ease-in-out infinite;
+  --animate-float: float 3s ease-in-out infinite;
+
+  @keyframes glitch {
+
+    0%,
+    100% {
+      transform: translate(0);
+    }
+
+    33% {
+      transform: translate(-2px, 2px);
+    }
+
+    66% {
+      transform: translate(2px, -2px);
+    }
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;700&family=Inter:wght@400;700;900&family=Space+Grotesk:wght@300;700&display=swap');
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='6' fill='%23adff2f' stroke='black' stroke-width='2'/%3E%3C/svg%3E") 16 16, auto;
+}
+
+body {
+  @apply bg-brutal-white text-brutal-black font-sans overflow-x-hidden;
+  background-image:
+    radial-gradient(circle at 2px 2px, rgba(0, 0, 0, 0.05) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Neo-Brutalist Utility Classes */
+.brutal-card {
+  @apply border-4 border-black shadow-brutal transition-all duration-200 hover:shadow-brutal-hover hover:translate-x-1 hover:translate-y-1;
+}
+
+.brutal-btn {
+  @apply inline-flex items-center justify-center px-8 py-4 font-display text-2xl uppercase border-4 border-black bg-zap-green text-black shadow-brutal transition-all duration-100 active:shadow-none active:translate-x-2 active:translate-y-2;
+}
+
+.brutal-btn-pink {
+  @apply inline-flex items-center justify-center px-8 py-4 font-display text-2xl uppercase border-4 border-black bg-hot-pink text-white shadow-brutal transition-all duration-100 active:shadow-none active:translate-x-2 active:translate-y-2;
+}
+
+.brutal-btn-blue {
+  @apply inline-flex items-center justify-center px-8 py-4 font-display text-2xl uppercase border-4 border-black bg-cyber-blue text-black shadow-brutal transition-all duration-100 active:shadow-none active:translate-x-2 active:translate-y-2;
+}
+
+.brutal-heading {
+  @apply font-display uppercase leading-none tracking-tighter;
+}
+
+.text-display {
+  @apply text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-display uppercase leading-[0.8] tracking-tight;
+}
+
+
+.glitch-hover:hover {
+  @apply animate-glitch;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-black;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-zap-green border-4 border-black;
+}
+
+/* Section Spacing */
+section {
+  @apply py-24 px-6 md:px-12 relative;
+}
+
+/* Background Grids */
+.bg-grid-green {
+  background-image: linear-gradient(#adff2f 2px, transparent 2px), linear-gradient(90deg, #adff2f 2px, transparent 2px);
+  background-size: 40px 40px;
+  background-color: #000;
+}
+
+.bg-dot-purple {
+  background-image: radial-gradient(#a100ff 2px, transparent 2px);
+  background-size: 30px 30px;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marquee 20s linear infinite;
+}
+
+.funky-label {
+  @apply bg-black text-white px-4 py-1 font-bold text-sm uppercase inline-block -rotate-2 mb-4;
+}
+
+.tilted-right {
+  @apply rotate-2;
+}
+
+.tilted-left {
+  @apply -rotate-2;
+}
